@@ -42,10 +42,6 @@ export default function NameSurname({ index }: NameSurnameProps) {
 								value: 2,
 								message: "Zadej prosím platné křestní jméno."
 							},
-							pattern: {
-								value: /^[A-Za-z]+$/,
-								message: "Zadej prosím platné křestní jméno."
-							},
 						})}
 					/>
 					{errors.firstName &&	<p className="text-sm">{errors.firstName.message}</p>}
@@ -60,10 +56,6 @@ export default function NameSurname({ index }: NameSurnameProps) {
 							required: "Napiš prosím své příjmení.",
 							minLength: {
 								value: 2,
-								message: "Zadej prosím platné příjmení."
-							},
-							pattern: {
-								value: /^[A-Za-z]+$/,
 								message: "Zadej prosím platné příjmení."
 							},
 						})} />

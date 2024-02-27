@@ -5,8 +5,9 @@ export default function Card03() {
 				<iframe
 					width="100%"
 					height="384"
-					src="https://maps.google.com/maps?width=100%25&amp;height=268&amp;hl=en&amp;q=Sp%C3%A1len%C3%A1%20108/51,%20Praha%201-Nov%C3%A9%20M%C4%9Bsto+(Advok%C3%A1tn%C3%AD%20kancel%C3%A1%C5%99%20%20ZLATOHL%C3%81VKOV%C3%81)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.4412364981713!2d14.983992312701277!3d50.73030467152868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470936339b995555%3A0x664cabce4c47b3dd!2zSG9yc2vDoSBjaGF0YSBKZcWhdMSbZGth!5e0!3m2!1sen!2scz!4v1709044468657!5m2!1sen!2scz"
 					loading="lazy"
+					referrerPolicy="no-referrer-when-downgrade"
 				>
 				</iframe>
 			</div>

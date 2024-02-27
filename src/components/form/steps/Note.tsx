@@ -32,14 +32,9 @@ export default function Note({ index }: NameSurnameProps) {
 					className="px-6 py-3 text-black text-lg placeholder-slate-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
 					placeholder="Poznámka"
 					{...register("note", {
-						required: "Napiš prosím své křestní jméno.",
 						minLength: {
-							value: 2,
-							message: "Zadej prosím platné křestní jméno."
-						},
-						pattern: {
-							value: /^[A-Za-z]+$/,
-							message: "Zadej prosím platné křestní jméno."
+							value: 10,
+							message: "Zadej prosím platnou poznámku o délce alespoň 10 znaků."
 						},
 					})}
 				/>
