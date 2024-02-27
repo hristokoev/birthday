@@ -39,7 +39,7 @@ export default function Note({ index }: NameSurnameProps) {
 						"Jméno": formData.value?.firstName,
 						"Příjmení": formData.value?.lastName,
 						"Přijde": formData.value?.coming == "true" ? "Ano" : "Ne",
-						"Vegan": formData.value?.vegan == "true" ? "Ano" : "Ne",
+						"Jí maso": formData.value?.vegan == "true" ? "Ano" : "Ne",
 						"Přespí": formData.value?.sleepover == "true" ? "Ano" : "Ne",
 						"Pije alkohol": formData.value?.alcohol == "true" ? "Ano" : "Ne",
 						"Potřebuje zaparkovat": formData.value?.parking == "true" ? "Ano" : "Ne",

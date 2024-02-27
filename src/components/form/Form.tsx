@@ -15,7 +15,7 @@ function Form() {
 	const StepDisplay = [
 		<NameSurname index={0} />,
 		<Boolean index={1} prop="coming" text="Přijdeš?" />,
-		<Boolean index={2} prop="vegan" text="Jsi vegan?" />,
+		<Boolean index={2} prop="vegan" text="Jíš maso?" />,
 		<Boolean index={3} prop="sleepover" text="Přespíš?" />,
 		<Boolean index={4} prop="alcohol" text="Piješ alkohol?" />,
 		<Boolean index={5} prop="parking" text="Potřebuješ zaparkovat?" />,

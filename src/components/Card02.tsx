@@ -13,11 +13,9 @@ export default function Card02() {
 						<div className="p-8 lg:p-16 lg:mb-4 space-y-8">
 							<h2 className="text-3xl lg:text-6xl text-slate-200 font-black uppercase mb-1">Informace</h2>
 							<div className="space-y-4">
-								<p className="lg:text-lg">Těžko uvěřit, nicméně má životní cesta se pomalu dostává do své druhé poloviny. A to si žádá řádnou oslavu. Pokud souhlasíš, rád Tě na oslavě přivítám. Je třeba jen vyplnit kraťoučký dotazník nad tímto textem a pak <span className="text-[#FF965A]">25.5. v 17:00</span> dorazit na chatu Ještědka po Ještědem.</p>
-								<p className="lg:text-lg">S sebou si vezmi jen dobrou náladu.</p>
-								<p className="lg:text-lg">Těším se na Tebe!<br/>&nbsp;- Petr Slanina</p>
+								<p className="lg:text-lg">Těžko uvěřit, nicméně má životní cesta se pomalu dostává do své druhé poloviny. A to si žádá řádnou oslavu. Pokud máš stejný názor, rád Tě na oslavě přivítám. Je třeba jen vyplnit kraťoučký dotazník nad tímto textem a pak <strong className="text-[#FF965A]">25.5. v 17:00</strong> dorazit na chatu Ještědka pod Ještědem. </p>
+								<p className="lg:text-lg">S sebou si vezmi jen dobrou náladu. Těším se na Tebe!<br />- Petr Slanina</p>
 								<p className="lg:text-lg">Pozn.: Dotazník prosím vyplň i když se dorazit nechystáš.</p>
-								
 							</div>
 						</div>
 						{/* Image */}
