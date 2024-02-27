@@ -11,18 +11,22 @@ import Card03 from "../components/Card03.tsx";
 <Layout title="Narozeninová oslava | 25. 5. 2024" description="Přijďte oslavit s námi narozeniny!">
   <main class="bg-gradient-to-br from-[#8E83C9] to-[#3D3FB6] overflow-hidden">
     <div class="p-8 xl:p-20 space-y-8 xl:space-y-20">
-			<div class="relative">
-				<Card01 client:load />
-				<Blob01 client:load />
+      <div class="relative">
+        <Card01 client:load />
+        <Blob01 client:load />
       </div>
       <div class="relative">
-				<Card02 client:visible />
-				<Blob02 client:visible />
+        <Card02 client:visible />
+        <Blob02 client:visible />
       </div>
-			<div class="relative">
-				<Card03 client:visible />
-				<Blob03 client:visible />
+      <div class="relative">
+        <Card03 client:visible />
+        <Blob03 client:visible />
       </div>
+    </div>
+    <div class="mb-8 flex flex-col place-items-center gap-2 text-white text-xs">
+      <img src="/occamy_logo_white.svg" alt="Occamy s.r.o." class="w-4 h-4 mr-2" />
+      <span>Vytvořilo ©&nbsp;<a href="https://www.occamy.cz/" target="_blank">Occamy s.r.o.</a></span>
     </div>
   </main>
 </Layout>

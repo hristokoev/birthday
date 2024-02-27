@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { useEffect } from "react"
-import { formData, formDataAdd, formNext } from "../store";
+import { useEffect, useState } from "react";
+
+import { formData, formDataAdd, formNext, formJump } from "../store";
 import FormButtons from "../FormButtons";
 
 interface NameSurnameProps {
@@ -9,6 +10,8 @@ interface NameSurnameProps {
 
 export default function Note({ index }: NameSurnameProps) {
 
+	const [loading, setLoading] = useState(false);
+
 	const { register, handleSubmit, setValue, formState: { errors } } = useForm({
 		defaultValues: {
 			note: formData.value?.note || ""
@@ -16,32 +19,54 @@ export default function Note({ index }: NameSurnameProps) {
 	});
 
 	const onSubmit = async (data: any) => {
+
+		setLoading(true);
+
 		// Save to atom (is it needed?)
 		formDataAdd("note", data.note);
 
-		// Send the form data
-		await fetch("https://api.web3forms.com/submit", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				"subject": "Přihláška na oslavu",
-				"from_name": "petr50.cz",
-				"Jméno": formData.value?.firstName,
-				"Příjmení": formData.value?.lastName,
-				"Přijde": formData.value?.coming == "true" ? "Ano" : "Ne",
-				"Vegan": formData.value?.vegan == "true" ? "Ano" : "Ne",
-				"Přespí": formData.value?.sleepover == "true" ? "Ano" : "Ne",
-				"Pije alkohol": formData.value?.alcohol == "true" ? "Ano" : "Ne",
-				"Potřebuje zaparkovat": formData.value?.parking == "true" ? "Ano" : "Ne",
-				"Poznámka": data.note,
-				"access_key": "baf4a06a-f1ae-446d-b563-cbb06e8b7486"
-			}),
-		});
+		const postData = async () => {
+			try {
+				// Send the form data
+				const response = await fetch("https://api.web3forms.com/submit", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						"subject": "Dotazník na oslavu",
+						"from_name": "petr50.cz",
+						"Jméno": formData.value?.firstName,
+						"Příjmení": formData.value?.lastName,
+						"Přijde": formData.value?.coming == "true" ? "Ano" : "Ne",
+						"Vegan": formData.value?.vegan == "true" ? "Ano" : "Ne",
+						"Přespí": formData.value?.sleepover == "true" ? "Ano" : "Ne",
+						"Pije alkohol": formData.value?.alcohol == "true" ? "Ano" : "Ne",
+						"Potřebuje zaparkovat": formData.value?.parking == "true" ? "Ano" : "Ne",
+						"Poznámka": data.note,
+						"access_key": "2d36914d-3a66-410c-b148-ff576994a715"
+					}),
+				});
 
-		// Go to next step
-		formNext(index)
+				if (!response.ok) {
+					formJump(8);
+				} else {
+					formNext(index);
+				}
+
+				// Assuming the server responds with JSON
+				const responseData = await response.json();
+				return responseData;
+			} catch (error) {
+				formJump(8);
+				throw error;
+			}
+		}
+
+		postData().finally(() => {
+			setLoading(false);
+		});
+		
 	}
 
 	useEffect(() => {
@@ -64,7 +89,7 @@ export default function Note({ index }: NameSurnameProps) {
 				/>
 				{errors.note && <p className="text-sm">{errors.note.message}</p>}
 			</div>
-			<FormButtons index={index} />
+			<FormButtons index={index} loading={loading} />
 		</form>
 	)
 }
