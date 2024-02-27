@@ -29,7 +29,7 @@ export default function NameSurname({ index }: NameSurnameProps) {
 
 	return (
 		<form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-			<div className="grid sm:grid-cols-2 gap-2 sm:gap-4">
+			<div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
 				<div className="flex flex-col sm:gap-2">
 					<label htmlFor="" className="sm:text-lg uppercase font-bold">Jméno:</label>
 					<input
