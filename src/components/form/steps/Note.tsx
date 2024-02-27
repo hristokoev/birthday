@@ -15,8 +15,32 @@ export default function Note({ index }: NameSurnameProps) {
 		}
 	});
 
-	const onSubmit = (data: any) => {
-		formDataAdd("note", data.note)
+	const onSubmit = async (data: any) => {
+		// Save to atom (is it needed?)
+		formDataAdd("note", data.note);
+
+		// Send the form data
+		await fetch("https://api.web3forms.com/submit", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				"subject": "Přihláška na oslavu",
+				"from_name": "petr50.cz",
+				"Jméno": formData.value?.firstName,
+				"Příjmení": formData.value?.lastName,
+				"Přijde": formData.value?.coming == "true" ? "Ano" : "Ne",
+				"Vegan": formData.value?.vegan == "true" ? "Ano" : "Ne",
+				"Přespí": formData.value?.sleepover == "true" ? "Ano" : "Ne",
+				"Pije alkohol": formData.value?.alcohol == "true" ? "Ano" : "Ne",
+				"Potřebuje zaparkovat": formData.value?.parking == "true" ? "Ano" : "Ne",
+				"Poznámka": data.note,
+				"access_key": "baf4a06a-f1ae-446d-b563-cbb06e8b7486"
+			}),
+		});
+
+		// Go to next step
 		formNext(index)
 	}
 
